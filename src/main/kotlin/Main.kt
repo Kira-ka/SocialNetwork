@@ -39,32 +39,38 @@ object WallService {
         return posts.last()
     }
 
+
     fun update(post: Post): Boolean {
         var bool = true
         for ((index, post1) in posts.withIndex()) {
             if (post1.id == post.id) {
-                posts[index] = post.copy(text = "пост обнавлен")
+                posts[index] = post.copy(text = "пост обновлен")
                 bool = true
             } else bool = false
         }
         return bool
     }
+
+    fun clear() {
+        posts = emptyArray()
+    }
 }
 
 fun main(args: Array<String>) {
-        val post1 = Post(
-            0,
-            123,
-            321,
-            123,
-            "какойто текст",
-            true,
-            Comments(0, true, false, true, true),
-            Reposts(10, true),
-            "post",
-            true
-        )
+    val post1 = Post(
+        0,
+        123,
+        321,
+        123,
+        "какойто текст",
+        true,
+        Comments(0, true, false, true, true),
+        Reposts(10, true),
+        "post",
+        true
+    )
 
-    WallService.add(post1)
-    WallService.update(post1)
+    val post2 = WallService.add(post1)
+    WallService.update(post2)
+
 }
