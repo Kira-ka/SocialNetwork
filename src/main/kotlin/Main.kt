@@ -18,7 +18,7 @@ data class Reposts(
     )
 
 data class Post(
-    val id: Int,
+    val id: Int = 0,
     val ownerId: Int,
     val fromId: Int,
     val createdBy: Int,
@@ -28,27 +28,39 @@ data class Post(
     val reposts: Reposts,
     val postType: String,
     val canPin: Boolean
+
 )
 
 object WallService {
+    private var id1: Int = 0
     private var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
-        val postWithId = post.copy(id = Random.nextInt(1, 100))
+        val postWithId = post.copy(id = id1)
         posts += postWithId
+        id1 += 1
         return posts.last()
     }
 
 
     fun update(post: Post): Boolean {
-        var bool = true
         for ((index, post1) in posts.withIndex()) {
             if (post1.id == post.id) {
-                posts[index] = post.copy(text = "пост обновлен")
-                bool = true
-            } else bool = false
+                posts[index] = post.copy(
+                    ownerId = +1,
+                    fromId = +1,
+                    createdBy = post.copy().ownerId + 1,
+                    text = "пост обновлен",
+                    friendsOnly = true,
+                    comments = Comments(0, true, false, true, true),
+                    reposts = Reposts(11, true),
+                    postType = "post",
+                    canPin = true
+                )
+                return true
+            }
         }
-        return bool
+        return false
     }
 
     fun clear() {
@@ -58,7 +70,7 @@ object WallService {
 
 fun main(args: Array<String>) {
     val post1 = Post(
-        0,
+        8,
         123,
         321,
         123,
@@ -69,8 +81,21 @@ fun main(args: Array<String>) {
         "post",
         true
     )
+    val post2 = Post(
+        3,
+        765,
+        987,
+        4123,
+        "какойто текст2",
+        true,
+        Comments(0, true, false, true, true),
+        Reposts(10, true),
+        "post",
+        true
+    )
 
-    val post2 = WallService.add(post1)
-    WallService.update(post2)
+    WallService.add(post1)
+    WallService.add(post2)
+    WallService.update(post1)
 
 }

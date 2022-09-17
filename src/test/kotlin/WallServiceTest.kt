@@ -44,16 +44,30 @@ class WallServiceTest {
             "post",
             true)
 
-        val result = WallService.add(post)
-        val result2 = WallService.update(result)
+        val post2 = Post(
+            0,
+            765,
+            987,
+            4123,
+            "какойто текст2",
+            true,
+            Comments(0, true, false, true, true),
+            Reposts(10, true),
+            "post",
+            true)
 
-        assertEquals(true, result2)
+
+        val result = WallService.add(post)
+        val result2 = WallService.add(post2)
+        val result3 = WallService.update(result)
+
+        assertEquals(true, result3)
     }
 
     @Test
     fun updateFals() {
         val post = Post(
-            0,
+            1,
             4123,
             4321,
             4123,
