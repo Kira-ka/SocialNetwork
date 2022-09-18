@@ -18,12 +18,14 @@ class WallServiceTest {
             4123,
             4321,
             4123,
+            4123,
             "какойто текст",
             true,
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true)
+            true
+        )
 
         val result = WallService.add(post)
 
@@ -37,24 +39,28 @@ class WallServiceTest {
             4123,
             4321,
             4123,
+            4123,
             "какойто текст",
-            true,
+            false,
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true)
+            true
+        )
 
         val post2 = Post(
             0,
             765,
             987,
             4123,
+            765,
             "какойто текст2",
             true,
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true)
+            true
+        )
 
 
         val result = WallService.add(post)
@@ -71,12 +77,14 @@ class WallServiceTest {
             4123,
             4321,
             4123,
+            4123,
             "какойто текст",
             true,
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true)
+            true
+        )
 
         WallService.add(post)
         val result = WallService.update(post)

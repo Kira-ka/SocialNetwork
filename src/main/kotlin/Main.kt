@@ -1,8 +1,3 @@
-import WallService.add
-import WallService.posts
-import WallService.update
-import kotlin.random.Random
-
 data class Comments(
     val count: Int,
     val canPost: Boolean,
@@ -20,11 +15,12 @@ data class Reposts(
 data class Post(
     val id: Int = 0,
     val ownerId: Int,
+    val date: Int,
     val fromId: Int,
-    val createdBy: Int,
-    val text: String,
+    val createdBy: Int?,
+    val text: String?,
     val friendsOnly: Boolean,
-    val comments: Comments,
+    val comments: Comments?,
     val reposts: Reposts,
     val postType: String,
     val canPin: Boolean
@@ -32,30 +28,23 @@ data class Post(
 )
 
 object WallService {
-    private var id1: Int = 0
+    private var idCounter: Int = 0
     private var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
-        val postWithId = post.copy(id = id1)
+        val postWithId = post.copy(id = idCounter)
         posts += postWithId
-        id1 += 1
+        idCounter += 1
         return posts.last()
     }
 
 
     fun update(post: Post): Boolean {
-        for ((index, post1) in posts.withIndex()) {
-            if (post1.id == post.id) {
+        for ((index, existing) in posts.withIndex()) {
+            if (existing.id == post.id) {
                 posts[index] = post.copy(
-                    ownerId = +1,
-                    fromId = +1,
-                    createdBy = post.copy().ownerId + 1,
-                    text = "пост обновлен",
-                    friendsOnly = true,
-                    comments = Comments(0, true, false, true, true),
-                    reposts = Reposts(11, true),
-                    postType = "post",
-                    canPin = true
+                    ownerId = existing.ownerId,
+                    date = existing.date,
                 )
                 return true
             }
@@ -74,6 +63,7 @@ fun main(args: Array<String>) {
         123,
         321,
         123,
+        123,
         "какойто текст",
         true,
         Comments(0, true, false, true, true),
@@ -86,8 +76,9 @@ fun main(args: Array<String>) {
         765,
         987,
         4123,
+        765,
         "какойто текст2",
-        true,
+        false,
         Comments(0, true, false, true, true),
         Reposts(10, true),
         "post",
