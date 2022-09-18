@@ -23,9 +23,10 @@ data class Post(
     val comments: Comments?,
     val reposts: Reposts,
     val postType: String,
-    val canPin: Boolean
-
+    val canPin: Boolean,
+    val attachment: Array<Attachment> = emptyArray()
 )
+
 
 object WallService {
     private var idCounter: Int = 0
@@ -69,7 +70,11 @@ fun main(args: Array<String>) {
         Comments(0, true, false, true, true),
         Reposts(10, true),
         "post",
-        true
+        true,
+        arrayOf(
+            AudioAttachment("Audio", Audio(123, 321, "Элвис")),
+            GraffitiAttachment("Graffiti", Graffiti(432, 543, "http/"))
+        )
     )
     val post2 = Post(
         3,
@@ -82,7 +87,8 @@ fun main(args: Array<String>) {
         Comments(0, true, false, true, true),
         Reposts(10, true),
         "post",
-        true
+        true,
+        arrayOf(VideoAttachment("Video", Video(230,123, "Доспехи бога")))
     )
 
     WallService.add(post1)

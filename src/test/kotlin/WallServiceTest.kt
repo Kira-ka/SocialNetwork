@@ -24,7 +24,11 @@ class WallServiceTest {
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true
+            true,
+            arrayOf(
+                AudioAttachment("Audio", Audio(123, 321, "Элвис")),
+                GraffitiAttachment("Graffiti", Graffiti(432, 543, "http/"))
+            )
         )
 
         val result = WallService.add(post)
@@ -45,7 +49,11 @@ class WallServiceTest {
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true
+            true,
+            arrayOf(
+                AudioAttachment("Audio", Audio(123, 321, "Элвис")),
+                GraffitiAttachment("Graffiti", Graffiti(432, 543, "http/"))
+            )
         )
 
         val post2 = Post(
@@ -59,7 +67,8 @@ class WallServiceTest {
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true
+            true,
+            arrayOf(VideoAttachment("Video", Video(230,123, "Доспехи бога")))
         )
 
 
@@ -83,7 +92,8 @@ class WallServiceTest {
             Comments(0, true, false, true, true),
             Reposts(10, true),
             "post",
-            true
+            true,
+            arrayOf(VideoAttachment("Video", Video(230,123, "Доспехи бога")))
         )
 
         WallService.add(post)
