@@ -71,9 +71,7 @@ fun main(args: Array<String>) {
         Reposts(10, true),
         "post",
         true,
-        arrayOf(
-            AudioAttachment("Audio", Audio(123, 321, "Элвис")),
-            GraffitiAttachment("Graffiti", Graffiti(432, 543, "http/"))
+        arrayOf(VideoAttachment(Video(123, 432,"Доспехи бога"))
         )
     )
     val post2 = Post(
@@ -88,11 +86,12 @@ fun main(args: Array<String>) {
         Reposts(10, true),
         "post",
         true,
-        arrayOf(VideoAttachment("Video", Video(230,123, "Доспехи бога")))
+        arrayOf(GraffitiAttachment(Graffiti(198,875,"http")))
     )
 
     WallService.add(post1)
     WallService.add(post2)
     WallService.update(post1)
-
+    val attachment: Attachment = GraffitiAttachment(Graffiti(198,875,"http"))
+    println(attachment.type)
 }

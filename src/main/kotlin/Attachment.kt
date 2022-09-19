@@ -1,6 +1,14 @@
-interface Attachment {
-    val typeStr: String
-}
+sealed class Attachment(val type: String)
+
+data class VideoAttachment(val video: Video) : Attachment("Video")
+
+data class AudioAttachment(val audio: Audio) : Attachment("Audio")
+
+data class PhotoAttachment(val photo: Photo) : Attachment("Photo")
+
+data class FileAttachment(val file: File) : Attachment("File")
+
+data class GraffitiAttachment(val graffiti: Graffiti) : Attachment("Graffiti")
 
 interface Type {
     val id: Int
@@ -18,13 +26,3 @@ data class File(override val id: Int, override val ownerId: Int, val title: Stri
 data class Graffiti(override val id: Int, override val ownerId: Int, val url: String) : Type{
 }
 
-class AudioAttachment(override val typeStr: String, val type: Audio) : Attachment {
-}
-class VideoAttachment(override val typeStr: String, val type: Video) : Attachment {
-}
-class PhotoAttachment(override val typeStr: String, val type: Photo) : Attachment {
-}
-class FileAttachment(override val typeStr: String, val type: File) : Attachment {
-}
-class GraffitiAttachment(override val typeStr: String, val type: Graffiti) : Attachment {
-}

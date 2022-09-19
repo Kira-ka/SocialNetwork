@@ -26,8 +26,7 @@ class WallServiceTest {
             "post",
             true,
             arrayOf(
-                AudioAttachment("Audio", Audio(123, 321, "Элвис")),
-                GraffitiAttachment("Graffiti", Graffiti(432, 543, "http/"))
+
             )
         )
 
@@ -51,14 +50,13 @@ class WallServiceTest {
             "post",
             true,
             arrayOf(
-                AudioAttachment("Audio", Audio(123, 321, "Элвис")),
-                GraffitiAttachment("Graffiti", Graffiti(432, 543, "http/"))
+                GraffitiAttachment(Graffiti(198, 875, "http")),
+                FileAttachment(File(1234, 8764, "Мастер и Маргарита"))
             )
         )
-
         val post2 = Post(
             0,
-            765,
+            75,
             987,
             4123,
             765,
@@ -68,7 +66,10 @@ class WallServiceTest {
             Reposts(10, true),
             "post",
             true,
-            arrayOf(VideoAttachment("Video", Video(230,123, "Доспехи бога")))
+            arrayOf(
+                PhotoAttachment(Photo(4544, 984578, 1)),
+                VideoAttachment(Video(982389, 9490, "Кино")))
+
         )
 
 
@@ -93,7 +94,7 @@ class WallServiceTest {
             Reposts(10, true),
             "post",
             true,
-            arrayOf(VideoAttachment("Video", Video(230,123, "Доспехи бога")))
+            arrayOf(FileAttachment(File(1234, 8764, "Мастер и Маргарита")))
         )
 
         WallService.add(post)
