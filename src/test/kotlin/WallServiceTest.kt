@@ -68,7 +68,8 @@ class WallServiceTest {
             true,
             arrayOf(
                 PhotoAttachment(Photo(4544, 984578, 1)),
-                VideoAttachment(Video(982389, 9490, "Кино")))
+                VideoAttachment(Video(982389, 9490, "Кино"))
+            )
 
         )
 
@@ -102,4 +103,52 @@ class WallServiceTest {
 
         assertEquals(false, result)
     }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val post = Post(
+            55,
+            4123,
+            4321,
+            4123,
+            4123,
+            "какойто текст",
+            true,
+            Comment(234, 5389, 6545, "люблю этот фильм"),
+            Reposts(10, true),
+            "post",
+            true,
+            arrayOf(FileAttachment(File(1234, 8764, "Мастер и Маргарита")))
+        )
+        val com = Comment(126, 687, 0, "тест")
+
+        WallService.add(post)
+        val result = WallService.createComment(post.id, com)
+
+    }
+
+    @Test
+    fun createComment() {
+        val post = Post(
+            0,
+            4123,
+            4321,
+            4123,
+            4123,
+            "какойто текст",
+            true,
+            Comment(234, 5389, 6545, "люблю этот фильм"),
+            Reposts(10, true),
+            "post",
+            true,
+            arrayOf(FileAttachment(File(1234, 8764, "Мастер и Маргарита")))
+        )
+        val com = Comment(126, 687, 0, "тест")
+
+        WallService.add(post)
+        val result = WallService.createComment(post.id, com)
+        assertEquals(com, result)
+    }
+
+
 }

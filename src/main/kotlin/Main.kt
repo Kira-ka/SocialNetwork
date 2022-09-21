@@ -32,7 +32,7 @@ object WallService {
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
 
-    fun createComment(postId: Int, comment: Comment): Comment? {
+    fun createComment(postId: Int, comment: Comment): Comment {
         for ((_, existing) in posts.withIndex()) {
             if (existing.id == postId) {
                 comments += comment
@@ -41,7 +41,7 @@ object WallService {
                 throw PostNotFoundException("no post with id $postId ")
             }
         }
-        return null
+        return comment
     }
 
     fun add(post: Post): Post {

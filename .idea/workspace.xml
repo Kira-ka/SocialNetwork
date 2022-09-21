@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ad1bde-62a8-46da-b87f-beae37612da6" name="Changes" comment="used solid classes">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/PostNotFoundException.kt" afterDir="false" />
+    <list default="true" id="61ad1bde-62a8-46da-b87f-beae37612da6" name="Changes" comment="add function &quot;createComment&quot; and exception class &quot;PostNotFoundException&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/WallServiceTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/WallServiceTest.kt" afterDir="false" />
@@ -70,7 +69,7 @@
       <command value="gradle test" />
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.SocialNetwork [test]">
     <configuration name="SocialNetwork [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663566467508</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add function &quot;createComment&quot; and exception class &quot;PostNotFoundException&quot;">
+      <created>1663749275870</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1663749275870</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,17 +204,7 @@
     <MESSAGE value="changed &quot;update&quot; function a little and add field &quot;date&quot;" />
     <MESSAGE value="done Homework for the lesson &quot;2.3. ООП: Композиция, наследование и интерфейсы&quot; task №1 and 2" />
     <MESSAGE value="used solid classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="used solid classes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>107</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="add function &quot;createComment&quot; and exception class &quot;PostNotFoundException&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add function &quot;createComment&quot; and exception class &quot;PostNotFoundException&quot;" />
   </component>
 </project>
