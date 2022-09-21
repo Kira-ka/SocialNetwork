@@ -1,9 +1,8 @@
-data class Comments(
-    val count: Int,
-    val canPost: Boolean,
-    val groupsCanPost: Boolean,
-    val canClose: Boolean,
-    val canOpen: Boolean
+data class Comment(
+    val id: Int,
+    val fromId: Int,
+    val date: Int,
+    val text: String
 )
 
 data class Reposts(
@@ -20,7 +19,7 @@ data class Post(
     val createdBy: Int?,
     val text: String?,
     val friendsOnly: Boolean,
-    val comments: Comments?,
+    val comments: Comment,
     val reposts: Reposts,
     val postType: String,
     val canPin: Boolean,
@@ -31,6 +30,19 @@ data class Post(
 object WallService {
     private var idCounter: Int = 0
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(postId: Int, comment: Comment): Comment? {
+        for ((_, existing) in posts.withIndex()) {
+            if (existing.id == postId) {
+                comments += comment
+                return comments.last()
+            } else {
+                throw PostNotFoundException("no post with id $postId ")
+            }
+        }
+        return null
+    }
 
     fun add(post: Post): Post {
         val postWithId = post.copy(id = idCounter)
@@ -67,11 +79,12 @@ fun main(args: Array<String>) {
         123,
         "какойто текст",
         true,
-        Comments(0, true, false, true, true),
+        Comment(40, 2224, 34, " text"),
         Reposts(10, true),
         "post",
         true,
-        arrayOf(VideoAttachment(Video(123, 432,"Доспехи бога"))
+        arrayOf(
+            VideoAttachment(Video(123, 432, "Доспехи бога"))
         )
     )
     val post2 = Post(
@@ -82,16 +95,15 @@ fun main(args: Array<String>) {
         765,
         "какойто текст2",
         false,
-        Comments(0, true, false, true, true),
+        Comment(6453, 12, 873, "true"),
         Reposts(10, true),
         "post",
         true,
-        arrayOf(GraffitiAttachment(Graffiti(198,875,"http")))
+        arrayOf(GraffitiAttachment(Graffiti(198, 875, "http")))
     )
-
+    val com = Comment(972, 877, 893, "отличный пост")
     WallService.add(post1)
     WallService.add(post2)
     WallService.update(post1)
-    val attachment: Attachment = GraffitiAttachment(Graffiti(198,875,"http"))
-    println(attachment.type)
+    WallService.createComment(45, com)
 }

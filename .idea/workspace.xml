@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ad1bde-62a8-46da-b87f-beae37612da6" name="Changes" comment="done Homework for the lesson &quot;2.3. ООП: Композиция, наследование и интерфейсы&quot; task №1 and 2">
+    <list default="true" id="61ad1bde-62a8-46da-b87f-beae37612da6" name="Changes" comment="used solid classes">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/PostNotFoundException.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Attachment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Attachment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/WallServiceTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/WallServiceTest.kt" afterDir="false" />
     </list>
@@ -25,6 +25,7 @@
       <list>
         <option value="JUnit4 Test Class" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -45,16 +46,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "C:/Users/User/IdeaProjects/SocialNetwork",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -68,7 +70,7 @@
       <command value="gradle test" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SocialNetwork [test]">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="SocialNetwork [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -116,7 +118,7 @@
       <workItem from="1663038032870" duration="6321000" />
       <workItem from="1663387835119" duration="7736000" />
       <workItem from="1663477102926" duration="11514000" />
-      <workItem from="1663564831008" duration="1585000" />
+      <workItem from="1663564831008" duration="2241000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1662907460755</created>
@@ -153,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663489754902</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="used solid classes">
+      <created>1663566467508</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1663566467508</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +197,18 @@
     <MESSAGE value="add &quot;add&quot; and &quot;update&quot; function" />
     <MESSAGE value="changed &quot;update&quot; function a little and add field &quot;date&quot;" />
     <MESSAGE value="done Homework for the lesson &quot;2.3. ООП: Композиция, наследование и интерфейсы&quot; task №1 and 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="done Homework for the lesson &quot;2.3. ООП: Композиция, наследование и интерфейсы&quot; task №1 and 2" />
+    <MESSAGE value="used solid classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="used solid classes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>107</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
