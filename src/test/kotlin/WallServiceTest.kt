@@ -120,15 +120,46 @@ class WallServiceTest {
             true,
             arrayOf(FileAttachment(File(1234, 8764, "Мастер и Маргарита")))
         )
+
+        val post2 = Post(
+            55,
+            41523,
+            43821,
+            41323,
+            423,
+            "какойто текст1",
+            true,
+            Comment(234, 5389, 6545, "не люблю этот фильм"),
+            Reposts(10, true),
+            "post",
+            true,
+            arrayOf(FileAttachment(File(199234, 87964, "Доспехи бога")))
+        )
+
         val com = Comment(126, 687, 0, "тест")
 
         WallService.add(post)
+        WallService.add(post2)
         val result = WallService.createComment(post.id, com)
 
     }
 
     @Test
     fun createComment() {
+        val post2 = Post(
+            1,
+            41523,
+            43821,
+            41323,
+            423,
+            "какойто текст1",
+            true,
+            Comment(234, 5389, 6545, "не люблю этот фильм"),
+            Reposts(10, true),
+            "post",
+            true,
+            arrayOf(FileAttachment(File(199234, 87964, "Доспехи бога")))
+        )
         val post = Post(
             0,
             4123,
@@ -146,7 +177,8 @@ class WallServiceTest {
         val com = Comment(126, 687, 0, "тест")
 
         WallService.add(post)
-        val result = WallService.createComment(post.id, com)
+        WallService.add(post2)
+        val result = WallService.createComment(post2.id, com)
         assertEquals(com, result)
     }
 

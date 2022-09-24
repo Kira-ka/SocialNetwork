@@ -33,16 +33,20 @@ object WallService {
     private var comments = emptyArray<Comment>()
 
     fun createComment(postId: Int, comment: Comment): Comment {
+        var check = false
         for ((_, existing) in posts.withIndex()) {
             if (existing.id == postId) {
                 comments += comment
+                check = true
                 return comments.last()
-            } else {
-                throw PostNotFoundException("no post with id $postId ")
             }
+        }
+        if (check == false) {
+            throw PostNotFoundException("no post with id $postId ")
         }
         return comment
     }
+
 
     fun add(post: Post): Post {
         val postWithId = post.copy(id = idCounter)
@@ -72,7 +76,7 @@ object WallService {
 
 fun main(args: Array<String>) {
     val post1 = Post(
-        8,
+        5,
         123,
         321,
         123,
@@ -88,7 +92,7 @@ fun main(args: Array<String>) {
         )
     )
     val post2 = Post(
-        3,
+        1,
         765,
         987,
         4123,
@@ -105,5 +109,5 @@ fun main(args: Array<String>) {
     WallService.add(post1)
     WallService.add(post2)
     WallService.update(post1)
-    WallService.createComment(45, com)
+    WallService.createComment(post2.id, com)
 }
